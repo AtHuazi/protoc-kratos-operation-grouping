@@ -1,4 +1,4 @@
-module protoc-kratos-operation-grouping
+module github.com/AtHuazi/protoc-kratos-operation-grouping
 
 go 1.19
 
