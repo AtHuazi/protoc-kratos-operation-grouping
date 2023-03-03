@@ -1,0 +1,15 @@
+package {{ .PackageName }}
+
+var groupOperations = map[string][]string{
+    {{- range $index, $element := .GroupFunc }}
+    "{{ $index }}": {
+        {{- range $element }}
+        "{{ .Operation }}",
+        {{- end }}
+    },
+    {{- end }}
+}
+
+func GetOperations(group string) []string {
+	return groupOperations[group]
+}
