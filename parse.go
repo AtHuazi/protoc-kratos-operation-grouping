@@ -44,7 +44,7 @@ func (o *ProtoParseItem) parseService(s *proto.Service) {
 }
 
 func (o *ProtoParseItem) parseRPC(r *proto.RPC) {
-	funcName := o.OperationPackageName + "." + o.OperationServiceName + "." + r.Name
+	funcName := "/" + o.OperationPackageName + "." + o.OperationServiceName + "/" + r.Name
 	if r.Comment == nil {
 		return
 	}
