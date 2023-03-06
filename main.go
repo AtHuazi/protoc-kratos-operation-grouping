@@ -42,7 +42,9 @@ func main() {
 		if !strings.HasSuffix(strings.ToLower(f.Name()), ".proto") {
 			continue
 		}
+		protoName := strings.Split(f.Name(), ".proto")[0]
 		protoParseItem := ProtoParseItem{
+			ProtoName:   normalizeProtoName(protoName),
 			PackageName: packageName,
 			GroupFunc:   make(map[string][]FuncParseItem, 0),
 		}
@@ -51,4 +53,10 @@ func main() {
 		file, _ := os.OpenFile(outFile, os.O_CREATE|os.O_WRONLY, 0755)
 		tpl.Execute(file, protoParseItem)
 	}
+}
+
+func normalizeProtoName(protoName string) string {
+	protoName = strings.Replace(protoName, "_", "", -1)
+	protoName = strings.Replace(protoName, ".", "", -1)
+	return strings.ToUpper(protoName[:1]) + protoName[1:]
 }

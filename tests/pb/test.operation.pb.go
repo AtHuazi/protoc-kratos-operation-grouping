@@ -1,14 +1,14 @@
 package pb
 
-var groupOperations = map[string][]string{
-    "auth": {
-        "cart.service.v1.Cart.GetCart",
-    },
-    "auth2": {
-        "cart.service.v1.Cart.GetCart",
-    },
+var TestServerOperationGroup = map[string][]string{
+	"auth": {
+		"cart.service.v1.Cart.GetCart",
+	},
+	"auth2": {
+		"cart.service.v1.Cart.GetCart",
+	},
 }
 
-func GetOperations(group string) []string {
-	return groupOperations[group]
+func GetTestServerOperationByGroup(group string) []string {
+	return TestServerOperationGroup[group]
 }

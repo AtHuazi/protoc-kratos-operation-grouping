@@ -11,6 +11,7 @@ const (
 )
 
 type ProtoParseItem struct {
+	ProtoName            string
 	PackageName          string
 	OperationPackageName string
 	OperationServiceName string

@@ -1,6 +1,6 @@
 package {{ .PackageName }}
 
-var groupOperations = map[string][]string{
+var {{.ProtoName}}ServerOperationGroup = map[string][]string{
     {{- range $index, $element := .GroupFunc }}
     "{{ $index }}": {
         {{- range $element }}
@@ -10,6 +10,6 @@ var groupOperations = map[string][]string{
     {{- end }}
 }
 
-func GetOperations(group string) []string {
-	return groupOperations[group]
+func Get{{.ProtoName }}ServerOperationByGroup(group string) []string {
+	return {{.ProtoName}}ServerOperationGroup[group]
 }
