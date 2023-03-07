@@ -10,7 +10,7 @@ service Cart {
   // @tags: auth,auth2
   rpc GetCart (GetCartReq) returns (GetCartReply) {}
   // comment
-  // @tags:
+  // @tags: auth,auth2
   rpc DeleteCart (DeleteCartReq) returns (DeleteCartReply) {}
 
   rpc AddItem (AddItemReq) returns (AddItemReply) {}

@@ -61,12 +61,10 @@ func (o *ProtoParseItem) parseRPC(r *proto.RPC) {
 					Operation: funcName,
 					GroupName: groupName,
 				}
-				v, ok := o.GroupFunc[groupName]
-				if ok {
-					v = append(v, item)
-					continue
+				_, ok := o.GroupFunc[groupName]
+				if !ok {
+					o.GroupFunc[groupName] = make([]FuncParseItem, 0)
 				}
-				o.GroupFunc[groupName] = make([]FuncParseItem, 0)
 				o.GroupFunc[groupName] = append(o.GroupFunc[groupName], item)
 			}
 		}
